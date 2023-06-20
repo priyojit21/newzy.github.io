@@ -1,0 +1,14 @@
+const express = require("express");
+const https = require("https");
+const app = new express();
+const path = require("path");
+
+app.use(express.static(path.join(__dirname,"public")));
+
+app.get("/", function(req,res){
+    res.sendFile(path.join(__dirname ,"public", "news.html"));
+});
+
+app.listen(3000,function(){
+    console.log("server running");
+});
